@@ -18,6 +18,13 @@ def ESGorditoNavidenno():
         print(numero)
 
 def validarCarnets(pCarnets):
+    """
+    Funcionalidad: Valida que los elementos de la lista dada representen carnets
+    Entradas:
+    -pCarnets(list): Lista de posibles carnets
+    Salidas:
+    return(bool): True si todos los elementos son carnets válidos, False si no lo son
+    """
     for carnet in pCarnets:
         if not re.match("\d{10}", carnet):
             #print("Alguno de los carnets proveídos no es válido (verifque que sean 10 dígitos exactos)")
