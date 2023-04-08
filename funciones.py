@@ -1,4 +1,114 @@
 import random
+import re
+
+def analizarCadena(pPalabra):
+    pPalabra=pPalabra.lower()
+    vocales=len(re.findall('[aeiouáéíóú]',pPalabra))
+    consonantes=len(re.findall('[bcdfghjklmnñpqrstvwxyz]',pPalabra))
+    espacios=len(re.findall('[\s]',pPalabra))
+    numeros=len(re.findall('[\d]',pPalabra))
+    simbolos=len(re.findall('[,.;:?!]',pPalabra))
+    return vocales,consonantes,espacios,numeros,simbolos
+
+def gorditoNavidenno():
+    numeros = []
+    while len(numeros)<5:
+        aleatorio = random.randint(0,99)
+        if aleatorio%2==0:
+            numeros.append(aleatorio)
+    return numeros
+
+def modificarLista(pLista):
+    for i in range(len(pLista)):
+        if esPar(pLista[i]):
+            pLista[i]=0
+        else:
+            pLista[i]=1
+    return pLista
+        
+def crearLista(pNumero):
+    lista=[]
+    for i in range(pNumero):
+        lista+=[random.randint(0,99)]
+    print(lista)
+    return modificarLista(lista)
+
+
+def esPar(pNumero):
+    """
+    Funcionalidad: imprimir los digitos pares del valor
+    Entradas:
+    -pNumero(int):
+    Salidas:
+    -
+    """
+    
+    if (pNumero % 10)%2==0:
+        return True
+    return False
+
+def contarGeneraciones(pLista):
+    cuenta = [0,0,0,0,0]
+    for carnet in pLista:
+        anno= int(carnet[:4])
+        cuenta[anno-2018] += 1
+    return cuenta
+
+def clasificarNotas(pLista):
+    aprobados=0
+    reposicion=0
+    reprobados=0
+    promedio=0
+    for i in pLista:
+        if i>70:
+            aprobados+=1
+        elif i>60:
+            reposicion+=1
+        else:
+            reprobados+=1
+        promedio+=i
+    promedio=promedio/len(pLista)
+    return aprobados,reposicion,reprobados,promedio,pLista
+            
+def crearListaNotas():
+    lista=[]
+    for i in range(10):
+        lista+=[random.randint(1,99)]
+    return clasificarNotas(lista)
+
+
+
+def listaPalindromos(pLista):
+    palindromos = []
+    for palabra in pLista:
+        if palabra == palabra[::-1]:
+            palindromos.append(palabra)
+    return palindromos
+
+def clasificarEdades(pLista):
+    bebe=0
+    niño=0
+    adolescente=0
+    adultoJoven=0
+    adultoMayor=0
+    for i in pLista:
+        if i>60:
+            adultoMayor+=1
+        elif i>21:
+            adultoJoven+=1
+        elif i>12:
+            adolescente+=1
+        elif i>3:
+            niño+=1
+        else:
+            bebe+=1
+    return bebe,niño,adolescente,adultoJoven,adultoMayor,pLista
+            
+def crearListaEdades(pNumero):
+    lista=[]
+    for i in range(pNumero):
+        lista+=[random.randint(1,99)]
+    return clasificarEdades(lista)
 
 def validarEntero(pnumero):
     while True:
@@ -17,28 +127,6 @@ def validarEntero(pnumero):
         pnumero = input("Ingrese un número: ")
     return pnumero
 
-def gorditoNavidenno():
-    numeros = []
-    while len(numeros)<5:
-        aleatorio = random.randint(0,99)
-        if aleatorio%2==0:
-            numeros.append(aleatorio)
-    return numeros
-
-def contarGeneraciones(pLista):
-    cuenta = [0,0,0,0,0]
-    for carnet in pLista:
-        anno= int(carnet[:4])
-        cuenta[anno-2018] += 1
-    return cuenta
-
-def listaPalindromos(pLista):
-    palindromos = []
-    for palabra in pLista:
-        if palabra == palabra[::-1]:
-            palindromos.append(palabra)
-    return palindromos
-
 def encontrarMenor(pEdades):
     menor = 1000
     for edad in pEdades:
@@ -55,3 +143,11 @@ def encontrarMayor(pEdades):
 
 def esBisiesto(pAnno):
     return pAnno % 4 == 0 and (pAnno % 100 != 0 or pAnno % 400 == 0)
+
+def productoCartesiano(pConjuntos,pLista):
+    producto=[]
+    for a in pConjuntos:
+        for i in pLista:
+            producto+=[[a,i]]
+    return producto
+
