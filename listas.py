@@ -42,7 +42,7 @@ def ESContarGeneraciones(pLista):
 
 def ESInformeEdades():
     """
-    Funcionalidad: Recibe entrada de usuario y muestra resultado de InformeEdades
+    Funcionalidad: Recibe entrada de usuario y muestra un informe de las edades dadas
     Entradas: NA
     Salidas:NA
     """
@@ -70,6 +70,30 @@ def ESInformeEdades():
         if edades[i] != menor and edades[i] != mayor:
             print(f"Edad {i+1}: {edades[i]}")
 
+def ESInformeEdadesNoInput(pLista):
+    """
+    Funcionalidad: Muestra el informe de las edades dadas sin necesitar entrada de datos manual
+    Entradas:
+    -pLista(list): Lista de edades a analizar
+    Salidas:NA
+    """
+    annoActual = 2023
+    menor = encontrarMenor(pLista)
+    mayor = encontrarMayor(pLista)
+
+    if esBisiesto(annoActual-mayor):
+        bisiesto = "bisiesto"
+    else:
+        bisiesto = "no bisiesto"
+    
+    print(f"El menor nació en el año {annoActual-menor} por ende tiene {menor} años\n"
+            f"El mayor nació en el año {annoActual-mayor} por ende tiene {mayor} años, esta persona nació en año {bisiesto}\n"
+            f"Entre ellos hay {mayor-menor} años de diferencia y entre este rango entonces se encuentran las edades:"
+          )
+    for i in range(len(pLista)):
+        if pLista[i] != menor and pLista[i] != mayor:
+            print(f"Edad {i+1}: {pLista[i]}")
+
 #Programa principal
 print("Gordito Navideño")
 ESGorditoNavidenno()
@@ -86,5 +110,5 @@ print(listaPalindromos(["radar", "oro", "rajar", "ralla", "sala", "somos", "adol
 print("")
 
 print("Informe de edades")
-ESInformeEdades()
+ESInformeEdadesNoInput([23,34,45,56,25])
 
