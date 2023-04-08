@@ -2,6 +2,13 @@ import random
 import re
 
 def analizarCadena(pPalabra):
+    """
+    Funcionalidad: Cuenta cuantos caracteres hay de cada tipo
+    Entradas:
+    -pPalabra(str): cadena de caracteres a analizar
+    Salidas:
+    -vocales,consonantes,espacios,numeros,simbolos(int): Número de caracteres en cada categoría
+    """
     pPalabra=pPalabra.lower()
     vocales=len(re.findall('[aeiouáéíóú]',pPalabra))
     consonantes=len(re.findall('[bcdfghjklmnñpqrstvwxyz]',pPalabra))
@@ -19,6 +26,13 @@ def gorditoNavidenno():
     return numeros
 
 def modificarLista(pLista):
+    """
+    Funcionalidad: Modifica la lista segun si el valor es par o impar
+    Entradas:
+    -pLista(int): lista de valores aleatorios
+    Salidas:
+    -pLista(list): lista modificada con un 0 si es par y un 1 si es impar
+    """
     for i in range(len(pLista)):
         if esPar(pLista[i]):
             pLista[i]=0
@@ -27,6 +41,13 @@ def modificarLista(pLista):
     return pLista
         
 def crearLista(pNumero):
+    """
+    Funcionalidad: Crea una lista de numeros aleatorios con la cantidad de pNumero
+    Entradas:
+    -pNumero(int): numero de valores en la lista
+    Salidas:
+    -return: Envia la lista a la función modificarLista
+    """
     lista=[]
     for i in range(pNumero):
         lista+=[random.randint(0,99)]
@@ -35,11 +56,11 @@ def crearLista(pNumero):
 
 def esPar(pNumero):
     """
-    Funcionalidad: imprimir los digitos pares del valor
+    Funcionalidad: comprobar si el valor es par o impar
     Entradas:
-    -pNumero(int):
+    -pNumero(int): valor a analizar
     Salidas:
-    -
+    -return(bool): True si es par, False si es impar
     """
     
     if pNumero%2==0:
@@ -54,6 +75,13 @@ def contarGeneraciones(pLista):
     return cuenta
 
 def clasificarNotas(pLista):
+    """
+    Funcionalidad: Clasifica los valores de una lista según rangos
+    Entradas:
+    -pLista(int): lista de valores aleatorios
+    Salidas:
+    -aprobados,reposicion,reprobados,promedio,pLista(int): Número de valores en cada categoría
+    """
     aprobados,reposicion,reprobados,promedio=0,0,0,0
     for i in pLista:
         if i>70:
@@ -67,6 +95,11 @@ def clasificarNotas(pLista):
     return aprobados,reposicion,reprobados,promedio,pLista
             
 def crearListaNotas():
+    """
+    Funcionalidad: Crea una lista de 10 numeros aleatorios
+    Salidas:
+    -return: Envia la lista a la función clasificarNotas
+    """
     lista=[]
     for i in range(10):
         lista+=[random.randint(1,99)]
@@ -80,6 +113,13 @@ def listaPalindromos(pLista):
     return palindromos
 
 def clasificarEdades(pLista):
+    """
+    Funcionalidad: Clasifica los valores de una lista según rangos
+    Entradas:
+    -pLista(int): lista de valores aleatorios
+    Salidas:
+    -bebe,niño,adolescente,adultoJoven,adultoMayor,pLista(int): Número de valores en cada categoría
+    """
     bebe,niño,adolescente,adultoJoven,adultoMayor=0,0,0,0,0
     for i in pLista:
         if i>60:
@@ -95,6 +135,13 @@ def clasificarEdades(pLista):
     return bebe,niño,adolescente,adultoJoven,adultoMayor,pLista
             
 def crearListaEdades(pNumero):
+    """
+    Funcionalidad: Crea una lista de numeros aleatorios con la cantidad de pNumero
+    Entradas:
+    -pNumero(int): numero de valores en la lista
+    Salidas:
+    -return: Envia la lista a la función clasificarEdades
+    """
     lista=[]
     for i in range(pNumero):
         lista+=[random.randint(1,99)]
@@ -135,6 +182,14 @@ def esBisiesto(pAnno):
     return pAnno % 4 == 0 and (pAnno % 100 != 0 or pAnno % 400 == 0)
 
 def productoCartesiano(pConjuntos,pLista):
+    """
+    Funcionalidad: retornar todos los posibles pares ordenados de la primera lista con la segunda
+    Entradas:
+    -pConjuntos(list): primera lista
+    -pLista(list): segunda lista
+    Salidas:
+    -producto(list): todos los posibles pares ordenados
+    """
     producto=[]
     for a in pConjuntos:
         for i in pLista:
