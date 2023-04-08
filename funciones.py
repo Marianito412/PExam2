@@ -33,7 +33,6 @@ def crearLista(pNumero):
     print(lista)
     return modificarLista(lista)
 
-
 def esPar(pNumero):
     """
     Funcionalidad: imprimir los digitos pares del valor
@@ -43,7 +42,7 @@ def esPar(pNumero):
     -
     """
     
-    if (pNumero % 10)%2==0:
+    if pNumero%2==0:
         return True
     return False
 
@@ -55,10 +54,7 @@ def contarGeneraciones(pLista):
     return cuenta
 
 def clasificarNotas(pLista):
-    aprobados=0
-    reposicion=0
-    reprobados=0
-    promedio=0
+    aprobados,reposicion,reprobados,promedio=0,0,0,0
     for i in pLista:
         if i>70:
             aprobados+=1
@@ -76,8 +72,6 @@ def crearListaNotas():
         lista+=[random.randint(1,99)]
     return clasificarNotas(lista)
 
-
-
 def listaPalindromos(pLista):
     palindromos = []
     for palabra in pLista:
@@ -86,11 +80,7 @@ def listaPalindromos(pLista):
     return palindromos
 
 def clasificarEdades(pLista):
-    bebe=0
-    niño=0
-    adolescente=0
-    adultoJoven=0
-    adultoMayor=0
+    bebe,niño,adolescente,adultoJoven,adultoMayor=0,0,0,0,0
     for i in pLista:
         if i>60:
             adultoMayor+=1
