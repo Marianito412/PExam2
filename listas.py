@@ -2,8 +2,15 @@ import re
 from funciones import *
     
 def ESAnalizarCadena(pPalabra):
-    pPalabra=pPalabra.lower()
-    if pPalabra!="":
+    """
+    Funcionalidad: Valida pPalabra e imprime la salida despues del proceso
+    Entradas:
+    -pPalabra(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
+    if pPalabra!="" and isinstance(pPalabra,str):
+        pPalabra=pPalabra.lower()
         vocales,consonantes,espacios,numeros,simbolos=analizarCadena(pPalabra)
         return ["Vocales: "+str(vocales),"Consonantes: "+str(consonantes),"Espacios: "+str(espacios),"Numeros: "+str(numeros),"Simbolos: "+str(simbolos)]
     else:
@@ -14,6 +21,13 @@ def ESGorditoNavidenno():
         print(numero)
 
 def ESIndicarParidad(pNumero):
+    """
+    Funcionalidad: Valida si pNumero son digitos e imprime la salida despues del proceso
+    Entradas:
+    -pNumero(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     if re.match('^[\d]+$',pNumero):
         return crearLista(int(pNumero))
     return "Debe de ingresar un número"
@@ -30,10 +44,24 @@ def ESContarGeneraciones(pLista):
         i+=1
 
 def ESnotasImaginarias():
+    """
+    Funcionalidad: Valida si pNumero son digitos e imprime la salida despues del proceso
+    Entradas:
+    -pNumero(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     aprobados,reposicion,reprobados,promedio,lista=crearListaNotas()
     return "Notas: "+str(lista)+"\nCantidad de aprobados: "+str(aprobados)+"\nCantidad de reposición: "+str(reposicion)+"\nCantidad de reprobados: "+str(reprobados)+ "\nPromedio del grupo: "+str(promedio)
 
 def clasificandoEdades(pNumero):
+    """
+    Funcionalidad: Valida si pNumero son digitos e imprime la salida despues del proceso
+    Entradas:
+    -pNumero(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     if re.match('^[\d]+$',pNumero):
         bebe,niño,adolescente,adultoJoven,adultoMayor,lista=crearListaEdades(int(pNumero))
         return "Edades: "+str(lista)+"\nBebés: "+str(bebe)+"\nNiño: "+str(niño)+"\nAdolescente: "+str(adolescente)+"\nAdulto Joven: "+str(adultoJoven)+ "\nAdulto Mayor: "+str(adultoMayor)
@@ -65,6 +93,14 @@ def ESInformeEdades():
             print(f"Edad {i+1}: {edades[i]}")
 
 def ESProductoCartesiano(pConjuntos,pLista):
+    """
+    Funcionalidad: Valida si pConjuntos son digitos y si pLista son letras, imprime la salida despues del proceso
+    Entradas:
+    -pConjuntos(list): primera lista
+    -pLista(list): segunda lista
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     for i in pConjuntos:
         if not re.match('^[\d*]+$',str(i)):
             return "El primer conjunto debe de ser números"
