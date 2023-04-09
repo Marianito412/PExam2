@@ -1,6 +1,6 @@
 #Elaborado por: Nicole Tatiana Parra Valverde y Mariano Soto.
 #Fecha de creacion: 05/04/2023 4:23pm
-#Ultima version:  05/04/2023 5:38pm
+#Ultima version:  08/04/2023 6:18pm
 #Version: 3.10.6
 
 #Importación de bibliotecas
@@ -8,6 +8,13 @@ import re
 from funciones import *
     
 def ESAnalizarCadena(pPalabra):
+    """
+    Funcionalidad: Valida pPalabra e imprime la salida despues del proceso
+    Entradas:
+    -pPalabra(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     pPalabra=pPalabra.lower()
     if pPalabra!="":
         vocales,consonantes,espacios,numeros,simbolos=analizarCadena(pPalabra)
@@ -26,6 +33,13 @@ def ESGorditoNavidenno():
         print(numero)
 
 def ESIndicarParidad(pNumero):
+    """
+    Funcionalidad: Valida si pNumero son digitos e imprime la salida despues del proceso
+    Entradas:
+    -pNumero(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     if re.match('^[\d]+$',pNumero):
         return crearLista(int(pNumero))
     return "Debe de ingresar un número"
@@ -61,10 +75,24 @@ def ESContarGeneraciones(pLista):
         i+=1
 
 def ESnotasImaginarias():
+    """
+    Funcionalidad: Valida si pNumero son digitos e imprime la salida despues del proceso
+    Entradas:
+    -pNumero(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     aprobados,reposicion,reprobados,promedio,lista=crearListaNotas()
     return "Notas: "+str(lista)+"\nCantidad de aprobados: "+str(aprobados)+"\nCantidad de reposición: "+str(reposicion)+"\nCantidad de reprobados: "+str(reprobados)+ "\nPromedio del grupo: "+str(promedio)
 
 def clasificandoEdades(pNumero):
+    """
+    Funcionalidad: Valida si pNumero son digitos e imprime la salida despues del proceso
+    Entradas:
+    -pNumero(str): cadena de caracteres a analizar
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     if re.match('^[\d]+$',pNumero):
         bebe,niño,adolescente,adultoJoven,adultoMayor,lista=crearListaEdades(int(pNumero))
         return "Edades: "+str(lista)+"\nBebés: "+str(bebe)+"\nNiño: "+str(niño)+"\nAdolescente: "+str(adolescente)+"\nAdulto Joven: "+str(adultoJoven)+ "\nAdulto Mayor: "+str(adultoMayor)
@@ -101,6 +129,14 @@ def ESInformeEdades():
             print(f"Edad {i+1}: {edades[i]}")
 
 def ESProductoCartesiano(pConjuntos,pLista):
+    """
+    Funcionalidad: Valida si pConjuntos son digitos y si pLista son letras, imprime la salida despues del proceso
+    Entradas:
+    -pConjuntos(list): primera lista
+    -pLista(list): segunda lista
+    Salidas:
+    -retorna una str según sea el caso.
+    """
     for i in pConjuntos:
         if not re.match('^[\d*]+$',str(i)):
             return "El primer conjunto debe de ser números"
@@ -135,7 +171,11 @@ def ESInformeEdadesNoInput(pLista):
 
 #Programa principal
 print("Analizar una cadena de caracteres")
+print("Entrada: murcielago")
+print("Salida: ")
 print(ESAnalizarCadena("murcielago"))
+print("Entrada: ''")
+print("Salida: ")
 print(ESAnalizarCadena(""))
 print("")
 
@@ -144,33 +184,46 @@ ESGorditoNavidenno()
 print("")
 
 print("Indicando la paridad")
+print("Entrada: 5")
+print("Salida: ")
 print(ESIndicarParidad("5"))
 print("")
 
 print("Contar Generaciones")
 print("Entrada: ['2018012344', '2021019876', '2021021234', '2019012345', '2018025678', '2022012345']")
+print("Salida: ")
 ESContarGeneraciones(["2018012344", "2021019876", "2021021234", "2019012345", "2018025678", "2022012345"])
 print("")
 
 print("Notas imaginarias")
+print("Salida: ")
 print(ESnotasImaginarias())
 print("")
 
 print("Listar palindromos")
 print("Entrada: ['radar', 'oro', 'rajar', 'ralla', 'sala', 'somos', 'adolfo']")
+print("Salida: ")
 print(listaPalindromos(["radar", "oro", "rajar", "ralla", "sala", "somos", "adolfo"]))
 print("")
 
 print("Clasificando edades")
+print("Entrada: 7")
+print("Salida: ")
 print(clasificandoEdades("7"))
 print("")
 
 print("Informe de edades")
+print("Entrada: [23,34,45,56,25]")
+print("Salida: ")
 ESInformeEdadesNoInput([23,34,45,56,25])
 print("")
 
 print("Producto Cartesiano")
+print("Entrada: [1,2],['x','y','z']")
+print("Salida: ")
 print(ESProductoCartesiano([1,2],["x","y","z"]))
+print("Entrada: [1,2,3,4],['a','b'])")
+print("Salida: ")
 print(ESProductoCartesiano([1,2,3,4],["a","b"]))
 
 
